@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+      <button onclick="nextImg()">Next</button>
+      <button onclick="slideShow()">SlideShow</button>
+      <button onclick="stopShow()">Stop</button>
+      <button onclick="perviousImg()">Pervious</button><br><br>
+      <img src="slideShow/1.jpg" width="600px" height="400px">
+        
+        <script>
+          var i=1;
+          var timer;
+          function nextImg(){
+                document.images[0].src ="SlideShow/"+i+".jpg"
+                i++;
+                if(i>6){i=6;}
+          }
+
+          function perviousImg(){
+                document.images[0].src ="SlideShow/"+i+".jpg"
+                i--;
+                if(i<1){i=1;}
+          }
+
+          function slideShow(){
+                timer=setTimeout(slideShow,2000);
+                if(i>6){i=1;}
+                document.images[0].src ="SlideShow/"+i+".jpg"
+                i++;
+          }
+
+          function stopShow(){
+              clearTimeout(timer);
+          }
+        </script>
+    </body>
+</html>
